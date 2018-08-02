@@ -1,0 +1,16 @@
+---
+title: "Course Project 1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+setwd("~/Desktop/R/assignment")
+library(data.table)
+library(lubridate)
+activity <- fread("activity.csv")
+activity[, date:=ymd(date, tz = "EST")]
+head(activity)
+str(activity)
+summary(activity)
+View(activity)
+```

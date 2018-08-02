@@ -44,6 +44,7 @@ missing <- sum(is.na(activity$steps))
 ```
 The total number of missing values in the dataset is `r missing`.
 ```{r}
+#impute the missing data with averaged number steps taken during that interval of all of the days
 activity[missing.vector, steps:=round(ave,0)]
 activity.no.na <- activity[,1:3]
 daily.no.na <- activity.no.na[, .(daily=sum(steps)), by=date]

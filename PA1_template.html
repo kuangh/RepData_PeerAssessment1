@@ -162,7 +162,8 @@ ggplot(data=activity, aes(x=interval, y=ave)) + geom_line()</code></pre>
 <pre class="r"><code>missing.vector &lt;- is.na(activity$steps)
 missing &lt;- sum(is.na(activity$steps))</code></pre>
 <p>The total number of missing values in the dataset is 2304.</p>
-<pre class="r"><code>activity[missing.vector, steps:=round(ave,0)]</code></pre>
+<pre class="r"><code>#impute the missing data with averaged number steps taken during that interval of all of the days
+activity[missing.vector, steps:=round(ave,0)]</code></pre>
 <pre><code>## Warning in `[.data.table`(activity, missing.vector, `:=`(steps,
 ## round(ave, : Coerced 'double' RHS to 'integer' to match the column's
 ## type; may have truncated precision. Either change the target column to
